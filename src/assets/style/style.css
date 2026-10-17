@@ -1,0 +1,522 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+.tilt-page,
+.tilt-page * {
+  box-sizing: border-box;
+  font-family: "Poppins", system-ui, sans-serif;
+}
+.tilt-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #05070f;
+}
+
+/* ---------- desktop frame / box ---------- */
+.tilt-page .frame {
+  position: relative;
+  width: min(100%, 980px);
+  min-height: 600px;
+  border-radius: 22px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 45%, #0b1a4a 0%, #070d26 45%, #04060f 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  display: grid;
+  place-items: center;
+  padding: 40px 20px;
+}
+.tilt-page .stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 44px;
+}
+
+/* ---------- tabs ---------- */
+.tilt-page .tabs {
+  display: flex;
+  padding: 4px;
+  gap: 2px;
+  background: #0b1a55;
+  border-radius: 10px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+}
+.tilt-page .tab {
+  border: 0;
+  cursor: pointer;
+  padding: 10px 26px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #8fa0d8;
+  background: transparent;
+  transition: 0.3s;
+}
+.tilt-page .tab.active {
+  background: #ffe9a6;
+  color: #0a1240;
+  box-shadow: 0 4px 14px rgba(255, 223, 130, 0.35);
+}
+
+.tilt-page .row {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ---------- 3D TILT CARD ---------- */
+.tilt-page .card-wrap {
+  perspective: 1000px;
+  padding: 50px 40px 30px; /* room for pop-outs */
+  margin: -50px -40px -30px;
+}
+.tilt-page .card {
+  --rx: 0deg;
+  --ry: 0deg;
+  --mx: 0;
+  --my: 0;
+  --gx: 50%;
+  --gy: 50%;
+  position: relative;
+  width: 290px;
+  height: 430px;
+  border-radius: 18px;
+  background: #fff;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  will-change: transform;
+}
+.tilt-page .card-wrap:hover .card {
+  transition: transform 0.08s linear;
+}
+
+.tilt-page .media {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 190px;
+  border-radius: 18px 18px 0 0;
+  overflow: hidden;
+  transform: translateZ(0);
+  background: linear-gradient(135deg, #22b7e8, #1478b8);
+}
+.tilt-page .tour-camping .media {
+  background: linear-gradient(135deg, #1d3a17, #2f5e24);
+}
+.tilt-page .cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.12) translate(calc(var(--mx) * -8px), calc(var(--my) * -8px));
+  transition: transform 0.4s ease;
+}
+/* curved white edge + foam at the bottom of the picture */
+.tilt-page .foam {
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  bottom: -26px;
+  height: 56px;
+  background: #fff;
+  border-radius: 50%;
+  filter: blur(4px);
+}
+
+/* card text */
+.tilt-page .body {
+  position: absolute;
+  inset: 190px 0 0 0;
+  padding: 14px 24px 22px;
+  text-align: center;
+  color: #0b1240;
+  transform: translateZ(30px);
+}
+.tilt-page .body h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+.tilt-page .price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 2px;
+}
+.tilt-page .price b {
+  font-size: 32px;
+  font-weight: 800;
+}
+.tilt-page .price i {
+  font-style: normal;
+  color: #b9bfd3;
+  font-weight: 300;
+  font-size: 24px;
+}
+.tilt-page .price span {
+  font-size: 16px;
+  font-weight: 600;
+  color: #6b7390;
+}
+.tilt-page .per {
+  margin: 0;
+  font-size: 11px;
+  color: #9aa1b8;
+}
+.tilt-page .pin {
+  margin-top: 18px;
+  color: #6b7390;
+}
+.tilt-page .place {
+  margin: 4px 0 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7390;
+}
+.tilt-page .choose {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  border: 0;
+  cursor: pointer;
+  padding: 12px 26px;
+  border-radius: 9px;
+  background: #0b1560;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: 0 8px 18px rgba(11, 21, 96, 0.4);
+  transition: 0.3s;
+}
+.tilt-page .choose:hover {
+  background: #ffe9a6;
+  color: #0b1240;
+}
+
+/* light reflection that follows the cursor */
+.tilt-page .shine {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    circle at var(--gx) var(--gy),
+    rgba(255, 255, 255, 0.35),
+    transparent 55%
+  );
+  transform: translateZ(1px);
+  transition: opacity 0.3s;
+}
+.tilt-page .card-wrap:hover .shine {
+  opacity: 1;
+}
+
+/* ---------- POP-OUT LAYERS ---------- */
+.tilt-page .pop {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  transition: transform 0.55s cubic-bezier(0.2, 0.9, 0.25, 1.2), opacity 0.4s;
+}
+
+/* kayak (inside picture at rest, jumps out on hover) */
+.tilt-page .tour-kayaking .pop-main {
+  width: 120px;
+  left: 78px;
+  top: 52px;
+  transform: translateZ(20px) rotate(0deg) scale(0.9);
+}
+.tilt-page .tour-kayaking .pop-extra {
+  /* splash */
+  width: 90px;
+  right: -26px;
+  top: -28px;
+  opacity: 0;
+  transform: translateZ(40px) scale(0.4);
+}
+.tilt-page .tour-kayaking .pop-stone {
+  width: 44px;
+  right: -6px;
+  bottom: 8px;
+  transform: translateZ(40px);
+}
+
+.tilt-page .card-wrap:hover .tour-kayaking .pop-main {
+  transform:
+    translate3d(calc(-30px + var(--mx) * 26px), calc(-34px + var(--my) * 20px), 90px)
+    rotate(-6deg) scale(1.75);
+}
+.tilt-page .card-wrap:hover .tour-kayaking .pop-extra {
+  opacity: 1;
+  transform:
+    translate3d(calc(var(--mx) * 40px), calc(var(--my) * 30px), 110px) scale(1);
+}
+.tilt-page .card-wrap:hover .tour-kayaking .pop-stone {
+  transform:
+    translate3d(calc(14px + var(--mx) * 30px), calc(10px + var(--my) * 24px), 100px)
+    rotate(20deg) scale(1.3);
+}
+
+/* tent + bush (camping) */
+.tilt-page .tour-camping .pop-main {
+  width: 130px;
+  left: 28px;
+  top: 28px;
+  transform: translateZ(20px) scale(0.85);
+}
+.tilt-page .tour-camping .pop-extra {
+  /* bush */
+  width: 62px;
+  right: 20px;
+  top: 40px;
+  transform: translateZ(25px) scale(0.8);
+}
+.tilt-page .tour-camping .pop-stone {
+  width: 44px;
+  right: -6px;
+  bottom: 8px;
+  transform: translateZ(40px);
+}
+.tilt-page .card-wrap:hover .tour-camping .pop-main {
+  transform:
+    translate3d(calc(-36px + var(--mx) * 26px), calc(-44px + var(--my) * 20px), 90px)
+    rotate(-4deg) scale(1.35);
+}
+.tilt-page .card-wrap:hover .tour-camping .pop-extra {
+  transform:
+    translate3d(calc(18px + var(--mx) * 34px), calc(-20px + var(--my) * 24px), 80px)
+    scale(1.3);
+}
+.tilt-page .card-wrap:hover .tour-camping .pop-stone {
+  transform:
+    translate3d(calc(14px + var(--mx) * 30px), calc(10px + var(--my) * 24px), 100px)
+    rotate(20deg) scale(1.3);
+}
+
+/* ---------- BOOKING DETAILS ---------- */
+.tilt-page .details {
+  width: 270px;
+  padding: 18px;
+  border-radius: 16px;
+  background: #0b1a55;
+  color: #fff;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+}
+.tilt-page .details h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.tilt-page .item {
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid transparent;
+  transition: 0.3s;
+}
+.tilt-page .item.on {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.07);
+}
+.tilt-page .item-top,
+.tilt-page .item-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tilt-page .item-top span {
+  font-size: 12px;
+  font-weight: 600;
+}
+.tilt-page .item-top em {
+  font-style: normal;
+}
+.tilt-page .item-top strong {
+  font-size: 12px;
+  color: #ffe9a6;
+}
+.tilt-page .item-bottom {
+  margin-top: 10px;
+}
+.tilt-page .item-bottom small {
+  font-size: 10px;
+  color: #7c8ac0;
+}
+.tilt-page .item-bottom button {
+  border: 0;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: #0a1240;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 600;
+  transition: 0.25s;
+}
+.tilt-page .item-bottom button:hover {
+  background: #ffe9a6;
+  color: #0a1240;
+}
+.tilt-page .total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.tilt-page .total strong {
+  font-size: 14px;
+}
+
+/* ---------- MODAL ---------- */
+.tilt-page .overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(3, 5, 14, 0.7);
+  backdrop-filter: blur(3px);
+  animation: tpFade 0.25s ease;
+}
+.tilt-page .modal {
+  position: relative;
+  width: min(100%, 330px);
+  padding: 26px 22px 22px;
+  border-radius: 18px;
+  text-align: center;
+  color: #fff;
+  background: #0a1c5e;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+  animation: tpPop 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.3);
+}
+.tilt-page .close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 26px;
+  height: 26px;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #b9c4f0;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 11px;
+}
+.tilt-page .badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: rgba(60, 200, 170, 0.22);
+  border: 1px solid rgba(120, 230, 200, 0.35);
+}
+.tilt-page .modal h4 {
+  margin: 10px 0 2px;
+  font-size: 17px;
+  font-weight: 700;
+}
+.tilt-page .sub {
+  margin: 0 0 18px;
+  font-size: 11px;
+  color: #8fa0d8;
+}
+.tilt-page .lbl {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #b9c4f0;
+}
+.tilt-page .modal input[type="date"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 0;
+  border-radius: 10px;
+  background: #060a1c;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  color-scheme: dark;
+}
+.tilt-page .chips {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0 14px;
+}
+.tilt-page .chips button {
+  flex: 1;
+  border: 0;
+  cursor: pointer;
+  padding: 8px 4px;
+  border-radius: 8px;
+  background: #13296f;
+  color: #c9d3f7;
+  font-size: 10px;
+  font-weight: 600;
+  transition: 0.25s;
+}
+.tilt-page .chips button.sel,
+.tilt-page .chips button:hover {
+  background: #ffe9a6;
+  color: #0a1240;
+}
+.tilt-page .confirm {
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+  padding: 13px;
+  border-radius: 10px;
+  background: #ffe9a6;
+  color: #0a1240;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(255, 223, 130, 0.25);
+  transition: transform 0.2s;
+}
+.tilt-page .confirm:hover {
+  transform: translateY(-2px);
+}
+
+@keyframes tpFade {
+  from { opacity: 0; }
+}
+@keyframes tpPop {
+  from { opacity: 0; transform: translateY(18px) scale(0.92); }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 760px) {
+  .tilt-page { padding: 12px; }
+  .tilt-page .frame { padding: 28px 12px; }
+  .tilt-page .row { flex-direction: column; gap: 28px; }
+  .tilt-page .details { width: min(100%, 320px); }
+}
+@media (max-width: 380px) {
+  .tilt-page .card { width: 260px; height: 400px; }
+  .tilt-page .media { height: 170px; }
+  .tilt-page .body { inset: 170px 0 0 0; }
+}
+/* touch devices: no hover, so disable tilt-follow transitions */
+@media (hover: none) {
+  .tilt-page .card { transition: none; }
+}
