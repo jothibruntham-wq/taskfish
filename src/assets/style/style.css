@@ -2,7 +2,7 @@
 
 .tilt-page,
 .tilt-page * {
-  box-sizing: border-box;
+      box-sizing: border-box;
   font-family: "Poppins", system-ui, sans-serif;
 }
 .tilt-page {
@@ -20,10 +20,9 @@
   min-height: 600px;
   border-radius: 22px;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 50% 45%, #0b1a4a 0%, #070d26 45%, #04060f 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  background: transparent;
+  border: none;
+  box-shadow: none;
   display: grid;
   place-items: center;
   padding: 40px 20px;
@@ -40,7 +39,7 @@
   display: flex;
   padding: 4px;
   gap: 2px;
-  background: #0b1a55;
+  background: #0c0950;
   border-radius: 10px;
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
 }
@@ -53,7 +52,7 @@
   font-weight: 700;
   letter-spacing: 1.4px;
   text-transform: uppercase;
-  color: #8fa0d8;
+  color: #090909;
   background: transparent;
   transition: 0.3s;
 }
@@ -169,7 +168,7 @@
 .tilt-page .per {
   margin: 0;
   font-size: 11px;
-  color: #9aa1b8;
+  color: #000000;
 }
 .tilt-page .pin {
   margin-top: 18px;
@@ -191,7 +190,7 @@
   padding: 12px 26px;
   border-radius: 9px;
   background: #0b1560;
-  color: #fff;
+  color: #000000;
   font-size: 12px;
   font-weight: 600;
   box-shadow: 0 8px 18px rgba(11, 21, 96, 0.4);
@@ -246,8 +245,8 @@
 }
 .tilt-page .tour-kayaking .pop-stone {
   width: 44px;
-  right: -6px;
-  bottom: 8px;
+  right: 14px;
+  bottom: 14px;
   transform: translateZ(40px);
 }
 
@@ -263,8 +262,8 @@
 }
 .tilt-page .card-wrap:hover .tour-kayaking .pop-stone {
   transform:
-    translate3d(calc(14px + var(--mx) * 30px), calc(10px + var(--my) * 24px), 100px)
-    rotate(20deg) scale(1.3);
+    translate3d(calc(var(--mx) * 12px), calc(var(--my) * 12px), 70px)
+    rotate(12deg) scale(1.15);
 }
 
 /* tent + bush (camping) */
@@ -283,8 +282,8 @@
 }
 .tilt-page .tour-camping .pop-stone {
   width: 44px;
-  right: -6px;
-  bottom: 8px;
+  right: 14px;
+  bottom: 14px;
   transform: translateZ(40px);
 }
 .tilt-page .card-wrap:hover .tour-camping .pop-main {
@@ -299,8 +298,8 @@
 }
 .tilt-page .card-wrap:hover .tour-camping .pop-stone {
   transform:
-    translate3d(calc(14px + var(--mx) * 30px), calc(10px + var(--my) * 24px), 100px)
-    rotate(20deg) scale(1.3);
+    translate3d(calc(var(--mx) * 12px), calc(var(--my) * 12px), 70px)
+    rotate(12deg) scale(1.15);
 }
 
 /* ---------- BOOKING DETAILS ---------- */
@@ -308,8 +307,8 @@
   width: 270px;
   padding: 18px;
   border-radius: 16px;
-  background: #0b1a55;
-  color: #fff;
+  background: #0b1659;
+  color: #000000;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
 }
 .tilt-page .details h3 {
@@ -354,7 +353,7 @@
 }
 .tilt-page .item-bottom small {
   font-size: 10px;
-  color: #7c8ac0;
+  color: #010101;
 }
 .tilt-page .item-bottom button {
   border: 0;
@@ -362,7 +361,7 @@
   padding: 5px 10px;
   border-radius: 6px;
   background: #0a1240;
-  color: #fff;
+  color: #070707;
   font-size: 9px;
   font-weight: 600;
   transition: 0.25s;
@@ -401,8 +400,8 @@
   padding: 26px 22px 22px;
   border-radius: 18px;
   text-align: center;
-  color: #fff;
-  background: #0a1c5e;
+  color: #020202;
+  background: #181819;
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
   animation: tpPop 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.3);
 }
@@ -437,7 +436,7 @@
 .tilt-page .sub {
   margin: 0 0 18px;
   font-size: 11px;
-  color: #8fa0d8;
+  color: #070707;
 }
 .tilt-page .lbl {
   display: block;
@@ -470,7 +469,7 @@
   padding: 8px 4px;
   border-radius: 8px;
   background: #13296f;
-  color: #c9d3f7;
+  color: #070707;
   font-size: 10px;
   font-weight: 600;
   transition: 0.25s;
@@ -487,7 +486,7 @@
   padding: 13px;
   border-radius: 10px;
   background: #ffe9a6;
-  color: #0a1240;
+  color: #121945;
   font-size: 12px;
   font-weight: 700;
   box-shadow: 0 8px 20px rgba(255, 223, 130, 0.25);

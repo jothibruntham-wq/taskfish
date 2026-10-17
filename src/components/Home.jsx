@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import "../assets/style/style.css";
 
-// Tour image assets
+// Tour image assets (Background cover + Pop-out PNGs)
 import kayakWater from "../assets/images/kayak-water.jpg";
 import kayak from "../assets/images/kayak.png";
 import splash from "../assets/images/splash.png";
@@ -14,10 +14,10 @@ import stoneDark from "../assets/images/stone-dark.png";
 
 /* ------------------------------------------------------------------
    IMAGES
-   cover  -> top picture of the card (water / grass)
-   main   -> big cut-out that pops out on hover (kayak / tent)
-   extra  -> second cut-out (splash / bush)
-   stone  -> small rock at the bottom-right corner
+   cover  -> background picture of the card (water / grass)
+   main   -> pop-out PNG (kayak / tent)
+   extra  -> secondary pop-out PNG (splash / bush)
+   stone  -> rock PNG at the bottom-right corner
 ------------------------------------------------------------------- */
 const TOURS = {
   kayaking: {
@@ -156,9 +156,9 @@ export default function Home() {
                   <span className="foam" />
                 </div>
 
-                {/* pop-out layers (outside overflow so they can leave the card) */}
-                <Img className="pop pop-main" src={tour.main} />
-                <Img className="pop pop-extra" src={tour.extra} />
+                {/* pop-out layers (only if provided) */}
+                {tour.main && <Img className="pop pop-main" src={tour.main} />}
+                {tour.extra && <Img className="pop pop-extra" src={tour.extra} />}
 
                 <div className="body">
                   <h2>{tour.label}</h2>
@@ -185,7 +185,7 @@ export default function Home() {
                   </button>
                 </div>
 
-                <Img className="pop pop-stone" src={tour.stone} />
+                {tour.stone && <Img className="pop pop-stone" src={tour.stone} />}
                 <span className="shine" />
               </div>
             </div>
