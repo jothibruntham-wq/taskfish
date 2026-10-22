@@ -238,8 +238,8 @@
 .tilt-page .tour-kayaking .pop-extra {
   /* splash */
   width: 90px;
-  right: -26px;
-  top: -28px;
+  right: 20px;
+  top: 20px;
   opacity: 0;
   transform: translateZ(40px) scale(0.4);
 }
@@ -258,7 +258,7 @@
 .tilt-page .card-wrap:hover .tour-kayaking .pop-extra {
   opacity: 1;
   transform:
-    translate3d(calc(var(--mx) * 40px), calc(var(--my) * 30px), 110px) scale(1);
+    translate3d(calc(var(--mx) * 16px), calc(var(--my) * 16px), 110px) scale(1);
 }
 .tilt-page .card-wrap:hover .tour-kayaking .pop-stone {
   transform:
